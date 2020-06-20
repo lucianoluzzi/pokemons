@@ -30,6 +30,8 @@ android {
 
 dependencies {
     implementation(project(":utils"))
+    implementation(project(":network"))
+    implementation(project(":design"))
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -41,6 +43,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
     implementation 'com.google.android.material:material:1.1.0'
     implementation "androidx.paging:paging-runtime-ktx:2.1.2"
+
+    implementation "com.apollographql.apollo:apollo-runtime:$apolloVersion"
+    implementation "com.apollographql.apollo:apollo-coroutines-support:$apolloVersion"
 
     implementation 'org.koin:koin-android:2.1.5'
     implementation 'org.koin:koin-android-viewmodel:2.1.5'

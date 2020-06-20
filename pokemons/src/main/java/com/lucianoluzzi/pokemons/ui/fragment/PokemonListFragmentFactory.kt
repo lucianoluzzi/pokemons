@@ -1,4 +1,4 @@
-package com.lucianoluzzi.pokemons.ui
+package com.lucianoluzzi.pokemons.ui.fragment
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
@@ -8,7 +8,9 @@ class PokemonListFragmentFactory(private val viewModel: PokemonListViewModel) : 
 
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
         return when (className) {
-            PokemonListFragment::class.java.name -> PokemonListFragment(viewModel)
+            PokemonListFragment::class.java.name -> PokemonListFragment(
+                viewModel
+            )
             else -> super.instantiate(classLoader, className)
         }
     }

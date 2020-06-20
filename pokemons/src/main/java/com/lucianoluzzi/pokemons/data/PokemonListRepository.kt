@@ -1,3 +1,7 @@
 package com.lucianoluzzi.pokemons.data
 
-interface PokemonListRepository
+import PokemonsQuery
+
+interface PokemonListRepository {
+    suspend fun fetchPokemons(): List<PokemonsQuery.Pokemon?>?
+}

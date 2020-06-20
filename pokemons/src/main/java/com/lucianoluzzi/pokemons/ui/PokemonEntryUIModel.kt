@@ -1,4 +1,4 @@
-package com.lucianoluzzi.pokemons.ui.adapter
+package com.lucianoluzzi.pokemons.ui
 
 data class PokemonEntryUIModel (
     val number: String,

@@ -5,18 +5,19 @@
     <data>
         <variable
             name="pokemon"
-            type="com.lucianoluzzi.pokemons.ui.adapter.PokemonEntryUIModel" />
+            type="com.lucianoluzzi.pokemons.ui.PokemonEntryUIModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="12dp">
 
         <TextView
             android:id="@+id/number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="@{pokemon.number}"
@@ -27,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:textSize="16sp"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/number"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,4 +1,4 @@
-package com.lucianoluzzi.pokemons.ui
+package com.lucianoluzzi.pokemons.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
