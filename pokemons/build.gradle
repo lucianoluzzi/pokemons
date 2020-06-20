@@ -29,9 +29,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":utils"))
     implementation(project(":network"))
     implementation(project(":design"))
+    implementation(project(":utils"))
 
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

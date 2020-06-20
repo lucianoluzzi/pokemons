@@ -1,4 +1,4 @@
-package com.lucianoluzzi.network
+package com.lucianoluzzi.network.data
 
 import com.apollographql.apollo.ApolloClient
 

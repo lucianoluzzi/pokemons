@@ -11,6 +11,7 @@ class PokemonListRepositoryImpl(
     private val pokemonsQuery: PokemonsQuery
 ) : PokemonListRepository {
 
+    @Throws(Exception::class)
     override suspend fun fetchPokemons(): List<PokemonsQuery.Pokemon?>? = withContext(Dispatchers.IO) {
         val response = networkClient.query(pokemonsQuery).toDeferred().await()
         return@withContext response.data?.pokemons
