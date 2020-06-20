@@ -1,0 +1,4 @@
+include ':network'
+include ':design'
+include ':app'
+rootProject.name = "Pokedex"
