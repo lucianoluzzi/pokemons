@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.lucianoluzzi.pokemons.databinding.FragmentPokemonListBinding
 import com.lucianoluzzi.pokemons.pokemonlist.ui.adapter.PokemonAdapter
 import com.lucianoluzzi.pokemons.pokemonlist.ui.adapter.PokemonEntryUIModel
@@ -21,7 +22,11 @@ class PokemonListFragment(private val viewModel: PokemonListViewModel) : Fragmen
         FragmentPokemonListBinding.inflate(inflater)
     }
 
-    private val pokemonAdapter = PokemonAdapter()
+    private val pokemonAdapter = PokemonAdapter {
+        val actionPokemonListFragmentToPokemonDetails =
+            PokemonListFragmentDirections.actionPokemonListFragmentToPokemonDetails(it.name)
+        findNavController().navigate(actionPokemonListFragmentToPokemonDetails)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
