@@ -1,0 +1,68 @@
+ext.versions = [
+        kotlinVersion:              "1.3.72",
+        buildGradle:                "4.0.0",
+
+        androidCoreKtx:             "1.3.0",
+        appCompat:                  "1.1.0",
+        constraintLayout:           "1.1.3",
+        material:                   "1.1.0",
+        androidXAnnotation:         "1.1.0",
+        androidXFragment:           "1.2.4",
+        liveData:                   "2.2.0",
+        navigation:                 "2.3.0-rc01",
+        fragment:                   "1.2.0",
+
+        koinVersion:                "2.1.5",
+        mockitoKotlin:              "2.2.0",
+        mockitoCore:                "3.3.3",
+
+        apolloVersion:              "2.2.0",
+
+        converterMoshi:             "2.9.0",
+        moshi:                      "1.9.2",
+
+        junit:                      "5.7.0-M1",
+        androidXJUnit:              "1.1.1",
+        espressoCore:               "3.2.0",
+        googleTruth:                "1.0.1"
+]
+
+ext.libraries = [
+        kotlin:                     "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlinVersion",
+        kotlinGradlePlugin:         "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlinVersion",
+        buildGradle:                "com.android.tools.build:gradle:$version.buildGradle",
+
+        androidCoreKtx:             "androidx.core:core-ktx:$versions.androidCoreKtx",
+        androidAppCompat:           "androidx.appcompat:appcompat:$versions.appCompat",
+        constraintLayout:           "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+        material:                   "com.google.android.material:material:$versions.material",
+        androidXAnnotation:         "androidx.annotation:annotation:$versions.androidXAnnotation",
+        androidXFragment:           "androidx.fragment:fragment-ktx:$versions.androidXFragment",
+        liveData:                   "androidx.lifecycle:lifecycle-livedata-ktx:$versions.liveData",
+        navigation:                 "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+        navigationUi:               "androidx.navigation:navigation-ui-ktx:$versions.navigation",
+        safeArgs:                   "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation",
+        fragment:                   "androidx.fragment:fragment-ktx:$versions.fragment",
+
+        koin:                       "org.koin:koin-android:$versions.koinVersion",
+        koinViewModel:              "org.koin:koin-android-viewmodel:$versions.koinVersion",
+        koinAndroidScope:           "org.koin:koin-android-scope:$versions.koinVersion",
+
+        mockitoKotlin:              "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockitoKotlin",
+        mockito:                    "org.mockito:mockito-core:$versions.mockitoCore",
+        junit:                      "org.junit.jupiter:junit-jupiter-api:$versions.junit",
+        junitRuntime:               "org.junit.jupiter:junit-jupiter-engine:$versions.junit",
+        androidXJunit:              "androidx.test.ext:junit:$versions.androidXJUnit",
+        espressoCore:               "androidx.test.espresso:espresso-core:$versions.espressoCore",
+        truth:                      "com.google.truth:truth:$versions.googleTruth",
+
+        apolloGradle:               "com.apollographql.apollo:apollo-gradle-plugin:$versions.apolloVersion",
+        apolloRuntime:              "com.apollographql.apollo:apollo-runtime:$versions.apolloVersion",
+        apolloCoroutines:           "com.apollographql.apollo:apollo-coroutines-support:$versions.apolloVersion",
+
+        converterMoshi:             "com.squareup.retrofit2:converter-moshi:$versions.converterMoshi",
+        moshi:                      "com.squareup.moshi:moshi:$versions.moshi",
+        moshiKotlin:                "com.squareup.moshi:moshi-kotlin:$versions.moshi",
+        moshiAdapters:              "com.squareup.moshi:moshi-adapters:$versions.moshi",
+        moshiCodeGen:               "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshi"
+]
