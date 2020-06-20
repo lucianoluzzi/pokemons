@@ -1,3 +1,4 @@
+include ':pokemons'
 include ':network'
 include ':design'
 include ':app'
