@@ -20,6 +20,7 @@ query Pokemon($name: String!) {
         evolutions {
             name
             types
+            image
         }
     }
 }
