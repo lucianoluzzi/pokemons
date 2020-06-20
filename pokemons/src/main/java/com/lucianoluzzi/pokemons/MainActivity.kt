@@ -1,7 +1,7 @@
-package com.lucianoluzzi.pokedex
+package com.lucianoluzzi.pokemons
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.lucianoluzzi.pokemons.pokemonlist.ui.fragment.PokemonListFragmentFactory
 import org.koin.android.ext.android.get
 
