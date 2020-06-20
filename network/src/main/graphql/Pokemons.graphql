@@ -1,0 +1,8 @@
+query Pokemons($pageSize: Int!) {
+  pokemons(first: $pageSize) {
+    number
+    name
+    types
+    image
+  }
+}
