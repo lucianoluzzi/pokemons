@@ -1,4 +1,4 @@
-package com.lucianoluzzi.pokemons.ui.fragment
+package com.lucianoluzzi.pokemons.pokemonlist.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.lucianoluzzi.pokemons.databinding.FragmentPokemonListBinding
-import com.lucianoluzzi.pokemons.ui.adapter.PokemonAdapter
-import com.lucianoluzzi.pokemons.ui.viewmodel.PokemonListViewModel
+import com.lucianoluzzi.pokemons.pokemonlist.ui.adapter.PokemonAdapter
+import com.lucianoluzzi.pokemons.pokemonlist.ui.viewmodel.PokemonListViewModel
 
 class PokemonListFragment(private val viewModel: PokemonListViewModel) : Fragment() {
 

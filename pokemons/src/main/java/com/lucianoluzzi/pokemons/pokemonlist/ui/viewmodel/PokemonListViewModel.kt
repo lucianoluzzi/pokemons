@@ -1,12 +1,12 @@
-package com.lucianoluzzi.pokemons.ui.viewmodel
+package com.lucianoluzzi.pokemons.pokemonlist.ui.viewmodel
 
 import PokemonsQuery
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lucianoluzzi.pokemons.domain.usecase.GetPokemonsUseCase
-import com.lucianoluzzi.pokemons.ui.PokemonEntryUIModel
+import com.lucianoluzzi.pokemons.pokemonlist.domain.usecase.GetPokemonsUseCase
+import com.lucianoluzzi.pokemons.pokemonlist.ui.adapter.PokemonEntryUIModel
 import kotlinx.coroutines.launch
 
 class PokemonListViewModel(

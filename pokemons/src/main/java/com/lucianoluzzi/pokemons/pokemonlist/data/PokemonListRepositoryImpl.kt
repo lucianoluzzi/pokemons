@@ -1,4 +1,4 @@
-package com.lucianoluzzi.pokemons.data
+package com.lucianoluzzi.pokemons.pokemonlist.data
 
 import PokemonsQuery
 import com.apollographql.apollo.ApolloClient

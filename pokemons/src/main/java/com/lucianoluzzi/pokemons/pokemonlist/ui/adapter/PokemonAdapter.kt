@@ -1,11 +1,10 @@
-package com.lucianoluzzi.pokemons.ui.adapter
+package com.lucianoluzzi.pokemons.pokemonlist.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lucianoluzzi.pokemons.databinding.ListItemPokemonBinding
-import com.lucianoluzzi.pokemons.ui.PokemonEntryUIModel
 
 class PokemonAdapter : ListAdapter<PokemonEntryUIModel, PokemonAdapter.PokemonViewHolder>(
     PokemonEntryDiffCallback()

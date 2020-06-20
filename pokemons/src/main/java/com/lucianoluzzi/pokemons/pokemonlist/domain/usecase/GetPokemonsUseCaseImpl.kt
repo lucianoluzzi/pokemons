@@ -1,6 +1,6 @@
-package com.lucianoluzzi.pokemons.domain.usecase
+package com.lucianoluzzi.pokemons.pokemonlist.domain.usecase
 
-import com.lucianoluzzi.pokemons.data.PokemonListRepository
+import com.lucianoluzzi.pokemons.pokemonlist.data.PokemonListRepository
 
 class GetPokemonsUseCaseImpl(private val repository: PokemonListRepository) : GetPokemonsUseCase {
 
