@@ -5,7 +5,7 @@
     <data>
         <variable
             name="pokemon"
-            type="com.lucianoluzzi.pokemons.entities.PokemonEntry" />
+            type="com.lucianoluzzi.pokemons.ui.adapter.PokemonEntryUIModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

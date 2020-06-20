@@ -5,9 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.lucianoluzzi.pokemons.databinding.ListItemPokemonBinding
-import com.lucianoluzzi.pokemons.entities.PokemonEntry
 
-class PokemonAdapter : ListAdapter<PokemonEntry, PokemonAdapter.PokemonViewHolder>(
+class PokemonAdapter : ListAdapter<PokemonEntryUIModel, PokemonAdapter.PokemonViewHolder>(
     PokemonEntryDiffCallback()
 ) {
 
@@ -28,7 +27,7 @@ class PokemonAdapter : ListAdapter<PokemonEntry, PokemonAdapter.PokemonViewHolde
         private val itemBinding: ListItemPokemonBinding
     ) : RecyclerView.ViewHolder(itemBinding.root) {
 
-        fun bind(pokemon: PokemonEntry?) {
+        fun bind(pokemon: PokemonEntryUIModel?) {
             itemBinding.pokemon = pokemon
         }
     }
