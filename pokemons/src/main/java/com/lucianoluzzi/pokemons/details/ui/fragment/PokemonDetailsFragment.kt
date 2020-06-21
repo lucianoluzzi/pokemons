@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import coil.api.load
+import coil.request.CachePolicy
 import com.lucianoluzzi.pokemons.R
 import com.lucianoluzzi.pokemons.databinding.FragmentPokemonDetailsBinding
 import com.lucianoluzzi.pokemons.details.ui.PokemonDetailsUIModel
@@ -66,7 +67,9 @@ class PokemonDetailsFragment(private val viewModel: PokemonDetailsViewModel) : F
     private fun loadImage(pokemon: PokemonDetailsUIModel) {
         pokemon.image?.let {
             binding.image.load(it) {
+                memoryCachePolicy(CachePolicy.DISABLED)
                 crossfade(true)
+                placeholder(R.mipmap.ic_pokeball_foreground)
             }
         }
     }
