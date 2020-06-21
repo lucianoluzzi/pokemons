@@ -29,6 +29,7 @@ local.properties
 .idea/sonarlint
 .idea/gradle.xml
 .idea/navEditor.xml
+.idea/assetWizardSettings.xml
 *.iml
 
 # OS-specific files
