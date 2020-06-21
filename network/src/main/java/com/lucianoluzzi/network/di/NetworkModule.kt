@@ -1,5 +1,6 @@
 package com.lucianoluzzi.network.di
 
+import PokemonQuery
 import PokemonsQuery
 import com.apollographql.apollo.ApolloClient
 import com.lucianoluzzi.network.data.NetworkClientProvider
@@ -12,7 +13,11 @@ object NetworkModule {
         }
 
         factory {
-            PokemonsQuery(152)
+            PokemonsQuery.builder()
+        }
+
+        factory {
+            PokemonQuery.builder()
         }
     }
 }

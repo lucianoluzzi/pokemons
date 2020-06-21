@@ -8,12 +8,13 @@ import kotlinx.coroutines.withContext
 
 class PokemonListRepositoryImpl(
     private val networkClient: ApolloClient,
-    private val pokemonsQuery: PokemonsQuery
+    private val pokemonsQuery: PokemonsQuery.Builder
 ) : PokemonListRepository {
 
     @Throws(Exception::class)
     override suspend fun fetchPokemons(): List<PokemonsQuery.Pokemon?>? = withContext(Dispatchers.IO) {
-        val response = networkClient.query(pokemonsQuery).toDeferred().await()
-        return@withContext response.data?.pokemons
+        val query = pokemonsQuery.pageSize(152).build()
+        val response = networkClient.query(query).toDeferred().await()
+        return@withContext response.data?.pokemons()
     }
 }

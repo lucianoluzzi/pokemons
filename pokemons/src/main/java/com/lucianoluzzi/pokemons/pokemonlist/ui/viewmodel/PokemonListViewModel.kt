@@ -37,8 +37,8 @@ class PokemonListViewModel(
     private fun transformIntoUIModel(entityList: List<PokemonsQuery.Pokemon?>): List<PokemonEntryUIModel> =
         entityList.map {
             PokemonEntryUIModel(
-                it?.number.orEmpty(),
-                it?.name.orEmpty()
+                it?.number().orEmpty(),
+                it?.name().orEmpty()
             )
         }
 }

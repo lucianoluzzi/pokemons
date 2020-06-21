@@ -6,10 +6,10 @@ import com.lucianoluzzi.pokemons.details.domain.entity.GetDetailsResultWrapper
 class GetPokemonDetailsUseCaseImpl(private val repository: PokemonDetailsRepository) :
     GetPokemonDetailsUseCase {
 
-    override suspend fun invoke(): GetDetailsResultWrapper {
+    override suspend fun invoke(pokemonName: String): GetDetailsResultWrapper {
         return try {
-            val response = repository.fetchDetails()
-            response?.pokemon?.let {
+            val response = repository.fetchDetails(pokemonName)
+            response?.let {
                 GetDetailsResultWrapper.Success(it)
             } ?: run {
                 returnError()

@@ -50,5 +50,5 @@ dependencies {
 }
 
 apollo {
-    generateKotlinModels.set(true)
+    generateModelBuilder = true
 }
