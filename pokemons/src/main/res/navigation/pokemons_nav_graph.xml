@@ -6,7 +6,7 @@
     <fragment
         android:id="@+id/pokemonListFragment"
         android:name="com.lucianoluzzi.pokemons.pokemonlist.ui.fragment.PokemonListFragment"
-        android:label="PokemonListFragment" >
+        android:label="Pokédex" >
         <action
             android:id="@+id/action_pokemonListFragment_to_pokemonDetails"
             app:destination="@id/pokemonDetails">
@@ -18,6 +18,5 @@
     </fragment>
     <fragment
         android:id="@+id/pokemonDetails"
-        android:name="com.lucianoluzzi.pokemons.details.ui.fragment.PokemonDetailsFragment"
-        android:label="PokemonDetails" />
+        android:name="com.lucianoluzzi.pokemons.details.ui.fragment.PokemonDetailsFragment" />
 </navigation>

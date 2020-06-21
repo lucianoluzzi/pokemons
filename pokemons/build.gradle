@@ -32,6 +32,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -55,6 +59,8 @@ dependencies {
 
     implementation "com.apollographql.apollo:apollo-runtime:$apolloVersion"
     implementation "com.apollographql.apollo:apollo-coroutines-support:$apolloVersion"
+
+    implementation "io.coil-kt:coil:0.11.0"
 
     implementation 'org.koin:koin-android:2.1.5'
     implementation 'org.koin:koin-android-viewmodel:2.1.5'

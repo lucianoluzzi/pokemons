@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.navArgs
+import coil.api.load
 import com.lucianoluzzi.pokemons.R
 import com.lucianoluzzi.pokemons.databinding.FragmentPokemonDetailsBinding
+import com.lucianoluzzi.pokemons.details.ui.PokemonDetailsUIModel
 import com.lucianoluzzi.pokemons.details.ui.viewmodel.DetailsResponseState
 import com.lucianoluzzi.pokemons.details.ui.viewmodel.PokemonDetailsViewModel
 import com.lucianoluzzi.utils.ui.hide
@@ -39,7 +41,16 @@ class PokemonDetailsFragment(private val viewModel: PokemonDetailsViewModel) : F
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val pokemonName = arguments?.getString("pokemon_name_argument").orEmpty()
+        setTitle(pokemonName)
+
         viewModel.fetchPokemonDetails(pokemonName)
+    }
+
+    private fun setTitle(pokemonName: String) {
+        if (pokemonName.isNotEmpty()) {
+            val toolbar = requireActivity().findViewById<Toolbar>(R.id.toolbar)
+            toolbar.title = pokemonName
+        }
     }
 
     private fun showData(response: DetailsResponseState.Success) {
@@ -48,6 +59,15 @@ class PokemonDetailsFragment(private val viewModel: PokemonDetailsViewModel) : F
             error.hide()
             contentContainer.show()
             binding.pokemon = response.data
+            loadImage(response.data)
+        }
+    }
+
+    private fun loadImage(pokemon: PokemonDetailsUIModel) {
+        pokemon.image?.let {
+            binding.image.load(it) {
+                crossfade(true)
+            }
         }
     }
 
