@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lucianoluzzi.pokemons.details.domain.GetPokemonDetailsUseCase
+import com.lucianoluzzi.pokemons.details.domain.entity.Evolution
 import com.lucianoluzzi.pokemons.details.domain.entity.GetDetailsResultWrapper
 import com.lucianoluzzi.pokemons.details.ui.PokemonDetailsUIModel
 import kotlinx.coroutines.launch
@@ -42,11 +43,20 @@ class PokemonDetailsViewModel(
 
     private fun getUIModel(pokemon: PokemonQuery.Data): PokemonDetailsUIModel {
         return with (pokemon) {
-            PokemonDetailsUIModel (
-                pokemon()?.number().orEmpty(),
-                pokemon()?.name().orEmpty(),
-                pokemon()?.classification().orEmpty(),
-                pokemon()?.image().orEmpty()
+            PokemonDetailsUIModel(
+                number = pokemon()?.number().orEmpty(),
+                name = pokemon()?.name().orEmpty(),
+                classification = pokemon()?.classification().orEmpty(),
+                image = pokemon()?.image().orEmpty(),
+                types = pokemon()?.types().orEmpty(),
+                resistances = pokemon()?.resistant().orEmpty(),
+                weaknesses = pokemon()?.weaknesses().orEmpty(),
+                evolutions = pokemon()?.evolutions()?.map {
+                    Evolution(
+                        name = it.name().orEmpty(),
+                        image = it.image().orEmpty()
+                    )
+                }.orEmpty()
             )
         }
     }

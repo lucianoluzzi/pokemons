@@ -5,21 +5,10 @@ query Pokemon($name: String!) {
         types
         image
         classification
-        attacks {
-            fast {
-                name
-                type
-                damage
-            }
-            special {
-                name
-                type
-                damage
-            }
-        }
+        resistant
+        weaknesses
         evolutions {
             name
-            types
             image
         }
     }
