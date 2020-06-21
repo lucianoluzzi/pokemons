@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
+import com.lucianoluzzi.pokemons.R
 import com.lucianoluzzi.pokemons.databinding.ListItemPokemonBinding
 
 class PokemonAdapter(
@@ -36,6 +38,10 @@ class PokemonAdapter(
             pokemon?.let { pokemonEntry ->
                 itemBinding.root.setOnClickListener {
                     clickListener(pokemonEntry)
+                }
+                itemBinding.image.load(pokemonEntry.image) {
+                    crossfade(true)
+                    placeholder(R.mipmap.ic_pokeball_foreground)
                 }
                 itemBinding.root.contentDescription = pokemonEntry.contentDescription
                 itemBinding.pokemon = pokemonEntry

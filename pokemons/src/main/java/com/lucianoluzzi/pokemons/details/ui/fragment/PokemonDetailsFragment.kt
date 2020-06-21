@@ -67,7 +67,6 @@ class PokemonDetailsFragment(private val viewModel: PokemonDetailsViewModel) : F
     private fun loadImage(pokemon: PokemonDetailsUIModel) {
         pokemon.image?.let {
             binding.image.load(it) {
-                memoryCachePolicy(CachePolicy.DISABLED)
                 crossfade(true)
                 placeholder(R.mipmap.ic_pokeball_foreground)
             }

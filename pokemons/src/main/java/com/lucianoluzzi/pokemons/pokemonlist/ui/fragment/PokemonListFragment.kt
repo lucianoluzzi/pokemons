@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.lucianoluzzi.pokemons.databinding.FragmentPokemonListBinding
 import com.lucianoluzzi.pokemons.pokemonlist.ui.adapter.PokemonAdapter
 import com.lucianoluzzi.pokemons.pokemonlist.ui.adapter.PokemonEntryUIModel
@@ -65,6 +66,7 @@ class PokemonListFragment(private val viewModel: PokemonListViewModel) : Fragmen
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.pokemons.layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
         binding.pokemons.adapter = pokemonAdapter
     }
 }

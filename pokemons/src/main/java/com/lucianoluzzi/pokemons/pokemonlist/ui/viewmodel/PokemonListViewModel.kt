@@ -38,7 +38,8 @@ class PokemonListViewModel(
         entityList.map {
             PokemonEntryUIModel(
                 it?.number().orEmpty(),
-                it?.name().orEmpty()
+                it?.name().orEmpty(),
+                it?.image().orEmpty()
             )
         }
 }
