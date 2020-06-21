@@ -3,7 +3,7 @@ package com.lucianoluzzi.network.data
 import com.apollographql.apollo.ApolloClient
 
 class NetworkClientProvider {
-    val apolloClient = ApolloClient.builder()
+    val apolloClient: ApolloClient = ApolloClient.builder()
         .serverUrl(BASE_URl)
         .build()
 

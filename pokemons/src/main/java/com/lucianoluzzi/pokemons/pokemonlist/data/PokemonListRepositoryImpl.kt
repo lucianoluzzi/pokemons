@@ -3,7 +3,7 @@ package com.lucianoluzzi.pokemons.pokemonlist.data
 import PokemonsQuery
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.coroutines.toDeferred
-import kotlinx.coroutines.Dispatchers
+import com.lucianoluzzi.utils.coroutines.DispatcherRegistry
 import kotlinx.coroutines.withContext
 
 class PokemonListRepositoryImpl(
@@ -12,9 +12,10 @@ class PokemonListRepositoryImpl(
 ) : PokemonListRepository {
 
     @Throws(Exception::class)
-    override suspend fun fetchPokemons(): List<PokemonsQuery.Pokemon?>? = withContext(Dispatchers.IO) {
-        val query = pokemonsQuery.pageSize(152).build()
-        val response = networkClient.query(query).toDeferred().await()
-        return@withContext response.data?.pokemons()
-    }
+    override suspend fun fetchPokemons(): List<PokemonsQuery.Pokemon?>? =
+        withContext(DispatcherRegistry.IO) {
+            val query = pokemonsQuery.pageSize(152).build()
+            val response = networkClient.query(query).toDeferred().await()
+            return@withContext response.data?.pokemons()
+        }
 }
