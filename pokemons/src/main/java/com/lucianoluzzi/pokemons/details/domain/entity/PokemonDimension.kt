@@ -5,10 +5,10 @@ data class PokemonDimension(
     val to: String) {
 
     val description = "$from - $to"
-    val contentDescription = "${from.getUnitDescription()} to ${to.getUnitDescription()}"
+    val contentDescription = "from ${from.getUnitDescription()} to ${to.getUnitDescription()}"
 
     private fun String.getUnitDescription(): String {
-        return replace("m", "meter")
-            .replace("kg", "kilogram")
+        return replace("m", " meter")
+            .replace("kg", " kilogram")
     }
 }
