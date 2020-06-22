@@ -5,8 +5,8 @@ import PokemonsQuery
 import com.apollographql.apollo.ApolloClient
 import com.lucianoluzzi.pokemons.PokemonFragmentFactory
 import com.lucianoluzzi.pokemons.details.data.PokemonsDetailsRepositoryImpl
-import com.lucianoluzzi.pokemons.details.domain.GetPokemonDetailsUseCase
-import com.lucianoluzzi.pokemons.details.domain.GetPokemonDetailsUseCaseImpl
+import com.lucianoluzzi.pokemons.details.domain.usecase.GetPokemonDetailsUseCase
+import com.lucianoluzzi.pokemons.details.domain.usecase.GetPokemonDetailsUseCaseImpl
 import com.lucianoluzzi.pokemons.details.ui.viewmodel.PokemonDetailsViewModel
 import com.lucianoluzzi.pokemons.pokemonlist.data.PokemonListRepositoryImpl
 import com.lucianoluzzi.pokemons.pokemonlist.domain.usecase.GetPokemonsUseCase
@@ -29,7 +29,9 @@ object PokemonModule {
                 get() as ApolloClient,
                 get() as PokemonQuery.Builder
             )
-            GetPokemonDetailsUseCaseImpl(repository)
+            GetPokemonDetailsUseCaseImpl(
+                repository
+            )
         }
 
         factory {

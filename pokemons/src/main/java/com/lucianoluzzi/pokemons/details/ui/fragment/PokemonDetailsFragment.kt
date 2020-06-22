@@ -7,11 +7,14 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import coil.api.load
 import com.lucianoluzzi.pokemons.R
 import com.lucianoluzzi.pokemons.databinding.FragmentPokemonDetailsBinding
+import com.lucianoluzzi.pokemons.details.domain.entity.Evolution
 import com.lucianoluzzi.pokemons.details.domain.entity.Type
 import com.lucianoluzzi.pokemons.details.ui.PokemonDetailsUIModel
+import com.lucianoluzzi.pokemons.details.ui.adapter.EvolutionsAdapter
 import com.lucianoluzzi.pokemons.details.ui.adapter.TypesAdapter
 import com.lucianoluzzi.pokemons.details.ui.viewmodel.DetailsResponseState
 import com.lucianoluzzi.pokemons.details.ui.viewmodel.PokemonDetailsViewModel
@@ -64,8 +67,21 @@ class PokemonDetailsFragment(private val viewModel: PokemonDetailsViewModel) : F
 
             loadImage(response.data)
             setTypes(response.data.types)
+            setEvolutions(response.data.evolutions)
+
             binding.weaknesses.adapter = TypesAdapter(response.data.weaknesses)
             binding.resistances.adapter = TypesAdapter(response.data.resistances)
+        }
+    }
+
+    private fun setEvolutions(evolutions: List<Evolution>) {
+        if (evolutions.isEmpty()) {
+            binding.evolutions.hide()
+            binding.evolutionsLabel.hide()
+        } else {
+            binding.evolutions.layoutManager =
+                StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+            binding.evolutions.adapter = EvolutionsAdapter(evolutions)
         }
     }
 

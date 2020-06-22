@@ -3,7 +3,7 @@ package com.lucianoluzzi.pokemons.details.ui.viewmodel
 import PokemonQuery
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.lucianoluzzi.pokemons.details.domain.GetPokemonDetailsUseCase
+import com.lucianoluzzi.pokemons.details.domain.usecase.GetPokemonDetailsUseCase
 import com.lucianoluzzi.pokemons.details.domain.entity.Evolution
 import com.lucianoluzzi.pokemons.details.domain.entity.GetDetailsResultWrapper
 import com.lucianoluzzi.pokemons.details.domain.entity.PokemonDimension
