@@ -25,6 +25,7 @@ class EvolutionsAdapter(private val evolutions: List<Evolution>) :
     class EvolutionViewHolder(private val binding: ListItemEvolutionBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(evolution: Evolution) {
+            binding.image.contentDescription = evolution.name
             binding.image.load(evolution.image) {
                 crossfade(true)
                 placeholder(R.mipmap.ic_pokeball_foreground)

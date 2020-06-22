@@ -134,7 +134,7 @@
                     android:id="@+id/types_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="32dp"
                     android:text="@string/types_label"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/content_header_container" />
@@ -164,56 +164,66 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lists_container"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/types_container">
 
-                    <TextView
-                        android:id="@+id/weakenesses_label"
+                    <LinearLayout
+                        android:id="@+id/weaknesses_container"
+                        android:orientation="vertical"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:contentDescription="@string/weaknesses_label"
-                        android:text="@string/weaknesses_label"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintEnd_toStartOf="@id/half_screen_guideline"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/weaknesses"
+                        <TextView
+                            android:id="@+id/weakenesses_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/weaknesses_label"
+                            android:text="@string/weaknesses_label" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/weaknesses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="8dp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/resistances_container"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="8dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintEnd_toEndOf="@id/weakenesses_label"
-                        app:layout_constraintStart_toStartOf="@id/weakenesses_label"
-                        app:layout_constraintTop_toBottomOf="@id/weakenesses_label" />
-
-                    <TextView
-                        android:id="@+id/resistances_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="@string/resistances_label"
-                        android:text="@string/resistances_label"
+                        android:orientation="vertical"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/half_screen_guideline"
-                        app:layout_constraintTop_toTopOf="@id/weakenesses_label" />
+                        app:layout_constraintTop_toTopOf="@id/weaknesses_container">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/resistances"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="8dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintEnd_toEndOf="@id/resistances_label"
-                        app:layout_constraintStart_toStartOf="@id/resistances_label"
-                        app:layout_constraintTop_toBottomOf="@id/resistances_label" />
+                        <TextView
+                            android:id="@+id/resistances_label"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/resistances_label"
+                            android:text="@string/resistances_label" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/resistances"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginEnd="8dp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                    </LinearLayout>
 
                     <androidx.constraintlayout.widget.Guideline
                         android:id="@+id/half_screen_guideline"
@@ -227,8 +237,9 @@
                     android:id="@+id/evolutions_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="32dp"
                     android:text="@string/evolutions_label"
+                    android:contentDescription="@string/evolutions_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/lists_container" />

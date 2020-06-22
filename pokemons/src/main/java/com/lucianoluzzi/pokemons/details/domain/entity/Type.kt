@@ -10,7 +10,7 @@ data class Type(val description: String) {
         "Fighting" -> R.drawable.ic_fighting
         "Dragon" -> R.drawable.ic_dragon
         "Bug" -> R.drawable.ic_bug
-        "Eletric" -> R.drawable.ic_electric
+        "Electric" -> R.drawable.ic_electric
         "Ghost" -> R.drawable.ic_ghost
         "Grass" -> R.drawable.ic_grass
         "Normal" -> R.drawable.ic_normal
