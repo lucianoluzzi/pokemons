@@ -9,36 +9,32 @@ import com.lucianoluzzi.pokemons.details.domain.GetPokemonDetailsUseCase
 import com.lucianoluzzi.pokemons.details.domain.entity.Evolution
 import com.lucianoluzzi.pokemons.details.domain.entity.GetDetailsResultWrapper
 import com.lucianoluzzi.pokemons.details.ui.PokemonDetailsUIModel
+import com.lucianoluzzi.utils.coroutines.SingleLiveEvent
 import kotlinx.coroutines.launch
 
 class PokemonDetailsViewModel(
     private val getPokemonDetailsUseCase: GetPokemonDetailsUseCase
 ) : ViewModel() {
 
-    private val mPokemonDetails = MutableLiveData<DetailsResponseState>().apply {
-        value = DetailsResponseState.Loading
-    }
-    val pokemonDetails: LiveData<DetailsResponseState> = mPokemonDetails
+    val pokemonDetails = SingleLiveEvent<DetailsResponseState>()
 
     fun fetchPokemonDetails(pokemonName: String) {
         viewModelScope.launch {
-            viewModelScope.launch {
-                when (val result = getPokemonDetailsUseCase.invoke(pokemonName)) {
-                    is GetDetailsResultWrapper.Success -> exposeSuccessData(result)
-                    is GetDetailsResultWrapper.Error -> exposeErrorData(result)
-                }
+            when (val result = getPokemonDetailsUseCase.invoke(pokemonName)) {
+                is GetDetailsResultWrapper.Success -> exposeSuccessData(result)
+                is GetDetailsResultWrapper.Error -> exposeErrorData(result)
             }
         }
     }
 
     private fun exposeSuccessData(result: GetDetailsResultWrapper.Success) {
         val uiModel = getUIModel(result.data)
-        mPokemonDetails.value = DetailsResponseState.Success(uiModel)
+        pokemonDetails.value = DetailsResponseState.Success(uiModel)
     }
 
     private fun exposeErrorData(result: GetDetailsResultWrapper.Error) {
         val error = result.error.orEmpty()
-        mPokemonDetails.value = DetailsResponseState.Error(error)
+        pokemonDetails.value = DetailsResponseState.Error(error)
     }
 
     private fun getUIModel(pokemon: PokemonQuery.Data): PokemonDetailsUIModel {
