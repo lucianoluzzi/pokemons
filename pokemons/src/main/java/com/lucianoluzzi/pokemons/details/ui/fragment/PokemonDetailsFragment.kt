@@ -59,21 +59,24 @@ class PokemonDetailsFragment(private val viewModel: PokemonDetailsViewModel) : F
         with(binding) {
             progress.hide()
             error.hide()
-            contentHeaderContainer.show()
+            contentContainer.show()
             binding.pokemon = response.data
 
             loadImage(response.data)
             setTypes(response.data.types)
-            setWeaknesses(response.data.weaknesses)
+            binding.weaknesses.adapter = TypesAdapter(response.data.weaknesses)
+            binding.resistances.adapter = TypesAdapter(response.data.resistances)
         }
     }
 
-
     private fun setTypes(types: List<Type>) {
         with(binding) {
-            typeOne.text = types[0].description
-            if (types.size > 1)
-                typeTwo.text = types[1].description
+            typeOne.load(types[0].typeIcon)
+            typeOne.contentDescription = types[0].description
+            if (types.size > 1) {
+                typeTwo.load(types[1].typeIcon)
+                typeTwo.contentDescription = types[1].description
+            }
         }
     }
 
@@ -86,14 +89,10 @@ class PokemonDetailsFragment(private val viewModel: PokemonDetailsViewModel) : F
         }
     }
 
-    private fun setWeaknesses(weaknesses: List<Type>) {
-        binding.weaknesses.adapter = TypesAdapter(weaknesses)
-    }
-
     private fun showError(response: DetailsResponseState.Error) {
         with(binding) {
             progress.hide()
-            contentHeaderContainer.hide()
+            contentContainer.hide()
             error.show()
             error.text = response.error
             error.contentDescription = response.error

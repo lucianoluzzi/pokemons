@@ -4,5 +4,6 @@ data class PokemonDimension(
     val from: String,
     val to: String) {
 
-    val description = "from $from to $to"
+    val description = "$from - $to"
+    val contentDescription = "$from to $to"
 }
