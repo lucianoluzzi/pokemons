@@ -1,4 +1,4 @@
-package com.lucianoluzzi.pokemons.details.domain
+package com.lucianoluzzi.pokemons.details.domain.usecase
 
 import com.lucianoluzzi.pokemons.details.domain.entity.GetDetailsResultWrapper
 
