@@ -7,6 +7,14 @@ query Pokemon($name: String!) {
         classification
         resistant
         weaknesses
+        height {
+            minimum
+            maximum
+        }
+        weight {
+            minimum
+            maximum
+        }
         evolutions {
             name
             image

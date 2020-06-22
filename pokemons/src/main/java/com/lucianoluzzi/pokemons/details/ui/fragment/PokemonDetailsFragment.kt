@@ -8,10 +8,11 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import coil.api.load
-import coil.request.CachePolicy
 import com.lucianoluzzi.pokemons.R
 import com.lucianoluzzi.pokemons.databinding.FragmentPokemonDetailsBinding
+import com.lucianoluzzi.pokemons.details.domain.entity.Type
 import com.lucianoluzzi.pokemons.details.ui.PokemonDetailsUIModel
+import com.lucianoluzzi.pokemons.details.ui.adapter.TypesAdapter
 import com.lucianoluzzi.pokemons.details.ui.viewmodel.DetailsResponseState
 import com.lucianoluzzi.pokemons.details.ui.viewmodel.PokemonDetailsViewModel
 import com.lucianoluzzi.utils.ui.hide
@@ -58,9 +59,21 @@ class PokemonDetailsFragment(private val viewModel: PokemonDetailsViewModel) : F
         with(binding) {
             progress.hide()
             error.hide()
-            contentContainer.show()
+            contentHeaderContainer.show()
             binding.pokemon = response.data
+
             loadImage(response.data)
+            setTypes(response.data.types)
+            setWeaknesses(response.data.weaknesses)
+        }
+    }
+
+
+    private fun setTypes(types: List<Type>) {
+        with(binding) {
+            typeOne.text = types[0].description
+            if (types.size > 1)
+                typeTwo.text = types[1].description
         }
     }
 
@@ -73,10 +86,14 @@ class PokemonDetailsFragment(private val viewModel: PokemonDetailsViewModel) : F
         }
     }
 
+    private fun setWeaknesses(weaknesses: List<Type>) {
+        binding.weaknesses.adapter = TypesAdapter(weaknesses)
+    }
+
     private fun showError(response: DetailsResponseState.Error) {
         with(binding) {
             progress.hide()
-            contentContainer.hide()
+            contentHeaderContainer.hide()
             error.show()
             error.text = response.error
             error.contentDescription = response.error
