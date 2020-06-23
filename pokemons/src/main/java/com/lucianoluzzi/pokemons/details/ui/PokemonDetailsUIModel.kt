@@ -8,7 +8,7 @@ data class PokemonDetailsUIModel(
     val number: String,
     val name: String,
     val classification: String,
-    val image: String?,
+    val image: String? = null,
     val types: List<Type>,
     val resistances: List<Type>,
     val weaknesses: List<Type>,

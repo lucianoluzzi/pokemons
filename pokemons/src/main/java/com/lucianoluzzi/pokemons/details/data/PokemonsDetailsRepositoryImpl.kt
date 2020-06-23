@@ -3,7 +3,7 @@ package com.lucianoluzzi.pokemons.details.data
 import PokemonQuery
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.coroutines.toDeferred
-import kotlinx.coroutines.Dispatchers
+import com.lucianoluzzi.utils.coroutines.DispatcherRegistry
 import kotlinx.coroutines.withContext
 
 class PokemonsDetailsRepositoryImpl(
@@ -12,9 +12,10 @@ class PokemonsDetailsRepositoryImpl(
 ) : PokemonDetailsRepository {
 
     @Throws(Exception::class)
-    override suspend fun fetchDetails(pokemonName: String): PokemonQuery.Data? = withContext(Dispatchers.IO) {
-        val query = pokemonQueryBuilder.name(pokemonName).build()
-        val response = networkClient.query(query).toDeferred().await()
-        return@withContext response.data
-    }
+    override suspend fun fetchDetails(pokemonName: String): PokemonQuery.Data? =
+        withContext(DispatcherRegistry.IO) {
+            val query = pokemonQueryBuilder.name(pokemonName).build()
+            val response = networkClient.query(query).toDeferred().await()
+            return@withContext response.data
+        }
 }

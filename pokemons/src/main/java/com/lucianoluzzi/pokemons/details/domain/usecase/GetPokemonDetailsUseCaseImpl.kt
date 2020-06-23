@@ -22,6 +22,6 @@ class GetPokemonDetailsUseCaseImpl(private val repository: PokemonDetailsReposit
     private fun returnError() = GetDetailsResultWrapper.Error(DEFAULT_GET_DETAILS_ERROR)
 
     private companion object {
-        const val DEFAULT_GET_DETAILS_ERROR = ""
+        const val DEFAULT_GET_DETAILS_ERROR = "Wild MISSINGNO. appeared!"
     }
 }
