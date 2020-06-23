@@ -6,6 +6,8 @@ I would like to say this is a state of the art application, but when it comes to
 With that out of the way, I tried to make the application as fresh as possible in terms of tools and patterns. 
 More about that below.
 
+I tried to make my commits [atomic](https://www.pauline-vos.nl/atomic-commits/), so they represent a clear story of how I approched the development. Check it out!
+
 ## The architecture
 
 My architecture pattern of choice for the application was the MVVP (as in the guidelines) with Clean Architecture.
