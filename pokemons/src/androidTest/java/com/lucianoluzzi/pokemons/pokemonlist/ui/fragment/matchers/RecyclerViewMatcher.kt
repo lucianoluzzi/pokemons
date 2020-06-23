@@ -1,4 +1,4 @@
-package com.lucianoluzzi.pokemons.pokemonlist.ui.fragment
+package com.lucianoluzzi.pokemons.pokemonlist.ui.fragment.matchers
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView

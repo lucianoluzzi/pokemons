@@ -156,6 +156,7 @@
 
                     <ImageView
                         android:id="@+id/type_two"
+                        android:visibility="gone"
                         android:layout_width="125dp"
                         android:layout_height="25dp"
                         android:layout_marginStart="2dp"

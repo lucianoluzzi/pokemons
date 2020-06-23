@@ -1,4 +1,4 @@
-package com.lucianoluzzi.pokemons.pokemonlist.ui.fragment
+package com.lucianoluzzi.pokemons.pokemonlist.ui.fragment.ui
 
 import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.lifecycle.MutableLiveData
@@ -6,6 +6,7 @@ import com.lucianoluzzi.pokemons.PokemonFragmentFactory
 import com.lucianoluzzi.pokemons.R
 import com.lucianoluzzi.pokemons.details.ui.viewmodel.PokemonDetailsViewModel
 import com.lucianoluzzi.pokemons.pokemonlist.ui.adapter.PokemonEntryUIModel
+import com.lucianoluzzi.pokemons.pokemonlist.ui.fragment.PokemonListFragment
 import com.lucianoluzzi.pokemons.pokemonlist.ui.fragment.robot.ListScreenRobot
 import com.lucianoluzzi.pokemons.pokemonlist.ui.viewmodel.ListResponseState
 import com.lucianoluzzi.pokemons.pokemonlist.ui.viewmodel.PokemonListViewModel
