@@ -8,15 +8,15 @@ import androidx.lifecycle.viewModelScope
 import com.lucianoluzzi.pokemons.pokemonlist.domain.entity.GetPokemonsResultWrapper
 import com.lucianoluzzi.pokemons.pokemonlist.domain.usecase.GetPokemonsUseCase
 import com.lucianoluzzi.pokemons.pokemonlist.ui.adapter.PokemonEntryUIModel
+import com.lucianoluzzi.utils.test.OpenForTest
 import kotlinx.coroutines.launch
 
+@OpenForTest
 class PokemonListViewModel(
     private val getPokemonsUseCase: GetPokemonsUseCase
 ) : ViewModel() {
 
-    private val mPokemons = MutableLiveData<ListResponseState>().apply {
-        value = ListResponseState.Loading
-    }
+    private val mPokemons = MutableLiveData<ListResponseState>()
     val pokemons: LiveData<ListResponseState> = mPokemons
 
     init {

@@ -10,8 +10,10 @@ import com.lucianoluzzi.pokemons.details.domain.entity.PokemonDimension
 import com.lucianoluzzi.pokemons.details.domain.entity.Type
 import com.lucianoluzzi.pokemons.details.ui.PokemonDetailsUIModel
 import com.lucianoluzzi.utils.coroutines.SingleLiveEvent
+import com.lucianoluzzi.utils.test.OpenForTest
 import kotlinx.coroutines.launch
 
+@OpenForTest
 class PokemonDetailsViewModel(
     private val getPokemonDetailsUseCase: GetPokemonDetailsUseCase
 ) : ViewModel() {
