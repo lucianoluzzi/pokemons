@@ -8,3 +8,9 @@ fun Int.hasSize(size: Int) {
     onView(ViewMatchers.withId(this))
         .check(ViewAssertions.matches(RecyclerViewMatcher.withListSize(size)))
 }
+
+fun Int.isDisplayed() =
+    onView(ViewMatchers.withId(this)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+
+fun Int.withText(text: String) =
+    onView(ViewMatchers.withId(this)).check(ViewAssertions.matches(ViewMatchers.withText(text)))

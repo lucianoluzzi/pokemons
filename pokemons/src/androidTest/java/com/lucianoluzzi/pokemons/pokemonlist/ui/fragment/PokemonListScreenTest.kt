@@ -43,6 +43,23 @@ class PokemonListScreenTest {
         }
     }
 
+    @Test
+    fun checkProgressShownWhenStartup() {
+        listRobot {
+            withProgress()
+        }
+    }
+
+    @Test
+    fun checkErrorShownWhenError() {
+        val error = "Error!"
+        liveData.postValue(ListResponseState.Error(error))
+
+        listRobot {
+            withError(error)
+        }
+    }
+
     private fun launchFragment() {
         launchFragmentInContainer<PokemonListFragment>(
             themeResId = R.style.AppTheme,
